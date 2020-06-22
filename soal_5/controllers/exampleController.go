@@ -1,24 +1,20 @@
 package controllers
 
-import "net/http"
+import (
+	"net/http"
+	response "pretestprivy/soal_5/helpers"
+	"time"
+)
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	switch r.Method {
-	case "GET":
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`{"message": "get called"}`))
-	case "POST":
-		w.WriteHeader(http.StatusCreated)
-		w.Write([]byte(`{"message": "post called"}`))
-	case "PUT":
-		w.WriteHeader(http.StatusAccepted)
-		w.Write([]byte(`{"message": "put called"}`))
-	case "DELETE":
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`{"message": "delete called"}`))
-	default:
-		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte(`{"message": "not found"}`))
-	}
+func Free(w http.ResponseWriter, r *http.Request) {
+	response.Success(w, "hasil jawaban nomer 5", true)
+}
+
+func Ping(w http.ResponseWriter, r *http.Request) {
+	response.Success(w, "pong", true)
+}
+
+func Time(w http.ResponseWriter, r *http.Request) {
+	currentTime := time.Now()
+	response.Success(w, currentTime.Format("2006-01-02 15:04:05"), true)
 }
