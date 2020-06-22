@@ -2,13 +2,13 @@ package routes
 
 import (
 	"net/http"
-	c "pretestprivy/soal_5/controllers"
+	cExample "pretestprivy/soal_5/controllers/example"
 
 	"github.com/gorilla/mux"
 )
 
 func HandlerRoute(router *mux.Router) {
-	router.HandleFunc("/", c.Free).Methods(http.MethodGet)
-	router.HandleFunc("/ping", c.Ping).Methods(http.MethodGet)
-	router.HandleFunc("/time", c.Time).Methods(http.MethodGet)
+	router.HandleFunc("/", cExample.Free).Methods(http.MethodGet)
+	router.HandleFunc("/ping", cExample.Ping).Methods(http.MethodGet)
+	router.HandleFunc("/time", cExample.Time).Methods(http.MethodGet)
 }

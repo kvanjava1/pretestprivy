@@ -1,13 +1,17 @@
-package helpers
+package responses
 
 import (
 	"fmt"
 	"net/http"
+	dotenv "pretestprivy/soal_5/helpers/dotenv"
 	"strconv"
 )
 
-func Success(w http.ResponseWriter, resPayload string, debugMode bool) {
+var config = dotenv.GetConfigValues()
+
+func Success(w http.ResponseWriter, resPayload string) {
 	resStatus := http.StatusOK
+	debugMode, _ := strconv.ParseBool(config["DEBUG_MODE"])
 
 	if debugMode {
 		fmt.Print("status code : " + "\n" + strconv.Itoa(resStatus) + "\n")
