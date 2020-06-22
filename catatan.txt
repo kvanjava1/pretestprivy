@@ -1,0 +1,6 @@
+package dari github untuk soal nomer 5 :
+go get -u github.com/gorilla/mux
+go get github.com/joho/godotenv
+
+
+<GO_PATH>/src/pretestprivy
